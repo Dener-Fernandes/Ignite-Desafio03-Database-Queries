@@ -28,7 +28,7 @@ export class GamesRepository implements IGamesRepository {
     const usersList = await this.repository
       .createQueryBuilder("games")
       .leftJoinAndSelect("games.users", "user")
-      .where("games.id == :id", { id })
+      .where("games.id = :id", { id })
       .getMany()
 
       return usersList[0].users;
